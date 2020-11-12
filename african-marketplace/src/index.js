@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// bootstrap??
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter as Router} from "react-router-dom";
+import {applyMiddleware, createStore} from "redux";
+import {Provider} from "react-redux";
+import thunk from "redux-thunk";
+// add reducers later
+
+//create store, add reducer and middleware with thunk
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Router>
     <App />
-  </React.StrictMode>,
+  </Router>,
   document.getElementById('root')
 );
 
