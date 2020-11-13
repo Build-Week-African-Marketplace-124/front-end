@@ -9,13 +9,17 @@ import {BrowserRouter as Router} from "react-router-dom";
 import {applyMiddleware, createStore} from "redux";
 import {Provider} from "react-redux";
 import thunk from "redux-thunk";
+import { rootReducer } from './reducers';
 // add reducers later
 
 //create store, add reducer and middleware with thunk
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Router>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </Router>,
   document.getElementById('root')
 );
