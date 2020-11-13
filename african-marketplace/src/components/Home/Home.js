@@ -8,7 +8,7 @@ const Home = (props) => {
 
     return (
         <>
-        <Navbar />
+        <Navbar home={true}/>
         <Wrapper>
         <Header>
         <Title>Welcome to the Market!</Title>
