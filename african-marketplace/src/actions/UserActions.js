@@ -10,7 +10,9 @@ export const getUser = () => dispatch => {
             dispatch({
                 type: SUCCESS_GETTING_USER,
                 payload: res.data,
-            })
+            });
+            localStorage.setItem('user', res.data.data.id);
+            console.log(res)
         })
         .catch(err => {
             dispatch({
