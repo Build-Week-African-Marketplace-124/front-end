@@ -11,7 +11,6 @@ export const getUser = () => dispatch => {
                 type: SUCCESS_GETTING_USER,
                 payload: res.data,
             });
-            localStorage.setItem('token', res.data.data.id);
             console.log(res)
         })
         .catch(err => {
@@ -22,7 +21,7 @@ export const getUser = () => dispatch => {
         });
 }
 
-export const postUser = user => dispatch => {
+export const postRegisterUser = user => dispatch => {
     dispatch({type: START_POSTING_USER});
     Axios
         .post('https://reqres.in/api/users', user)
@@ -31,6 +30,26 @@ export const postUser = user => dispatch => {
                 type: SUCCESS_POSTING_USER,
                 payload: res.data,
             });
+            console.log(res)
+        })
+        .catch(err => {
+            dispatch({
+                type: ERROR_POSTING_USER,
+            });
+            console.log(err);
+        });
+}
+
+export const postLoginUser = user => dispatch => {
+    dispatch({type: START_POSTING_USER});
+    Axios
+        .post('https://reqres.in/api/users', user)
+        .then(res =>{
+            dispatch({
+                type: SUCCESS_POSTING_USER,
+                payload: res.data,
+            });
+            localStorage.setItem('user', res.data.data.id);
             console.log(res)
         })
         .catch(err => {

@@ -2,7 +2,6 @@ export const initialState = {
     id: '',
     userName: '',
     password: '',
-    isLoggedIn: false,
 }
 
 export const START_POSTING_USER = "START_POSTING_USER";
@@ -21,7 +20,6 @@ export const postUserReducer = (state = initialState, action) => {
                 id: action.payload.id,
                 userName: action.payload.first_name,
                 password: action.payload.last_name,
-                isLoggedIn: state.isLoggedIn,
             }
         case ERROR_POSTING_USER:
             return {

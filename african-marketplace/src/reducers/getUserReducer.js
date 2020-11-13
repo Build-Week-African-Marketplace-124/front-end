@@ -16,7 +16,6 @@ export const getUserReducer = (state = initialState, action) => {
                 id: action.payload.id,
                 userName: action.payload.first_name,
                 password: action.payload.last_name,
-                isLoggedIn: true,
             }
         case ERROR_GETTING_USER:
             return {
