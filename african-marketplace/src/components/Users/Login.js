@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router';
-import { getUser } from '../../actions/UserActions';
+import { postLoginUser } from '../../actions/UserActions';
 import { initialState } from '../../reducers/postUsersReducer';
 import UserForm from './UserForm';
 
@@ -18,7 +18,7 @@ const Login = props => {
 
     const submitHandler = e => {
         e.preventDefault();
-        props.getUser();
+        props.postLoginUser();
         setUser(initialState);
         push('/')
     }
@@ -30,6 +30,6 @@ const Login = props => {
     )
 }
 
-const mapDispatchToProps = {getUser};
+const mapDispatchToProps = {postLoginUser};
 
 export default connect(null, mapDispatchToProps)(Login);
