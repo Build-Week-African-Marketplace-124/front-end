@@ -2,6 +2,7 @@ import React from "react";
 // nead a navbar? footer? card?
 import {Header, Wrapper, Title, CardWrapper} from "./homeStyles";
 import Navbar from "../Nav-bar/User-LoginNav";
+import HomeCards from "../../Cards/Home-Cards";
 
 const Home = (props) => {
     console.log("home props", props)
@@ -14,6 +15,7 @@ const Home = (props) => {
         <Title>Welcome to the Market!</Title>
         </Header>
         <CardWrapper>
+            <HomeCards />
         </CardWrapper>
         </Wrapper>
         </>
