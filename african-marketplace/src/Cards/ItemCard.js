@@ -14,7 +14,9 @@ import { CardText, CardBody, Collapse } from "reactstrap";
 import { GiGrain, GiMeat, GiFruitBowl, GiFruiting } from "react-icons/gi";
 
 const ItemCard = (props) => {
-
+    const [icon, setIcon] = useState();
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
 
     return (
         <div>
