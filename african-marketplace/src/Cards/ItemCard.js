@@ -1,26 +1,34 @@
 import React, { useState, useEffect } from "react";
 import {
-  ProductImg,
   ProductCard,
   Title,
   SubTitle,
   Price,
   CardOverlay,
-  DescriptionButton,
+  ToggleButton,
   OverlayText,
   ProfileImg
-} from "./ItemCard_Styles";
+} from "./Item-Styles";
 import { CardText, CardBody, Collapse } from "reactstrap";
-import { GiGrain, GiMeat, GiFruitBowl, GiFruiting } from "react-icons/gi";
 
 const ItemCard = (props) => {
-    const [icon, setIcon] = useState();
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
+    //need data from product endpoints: title, username
+    // do we need imgs?
+
     return (
-        <div>
-        </div>
+        <ProductCard>
+        <Title>Name of product</Title>
+        <CardOverlay>
+            <OverlayText>User: data from username</OverlayText>
+        </CardOverlay>
+        <CardBody>
+          <SubTitle>Description: data description</SubTitle>
+        </CardBody>
+      <Price>Price: data price</Price>
+    </ProductCard>
     )
 }
 
