@@ -13,6 +13,7 @@ export const Navigation = styled(Nav)`
 
 export const LinksWrapper = styled(NavItem)`
 display: flex;
+list-style: none;
 justify-content: center;
 align-items: center;
 color: ;

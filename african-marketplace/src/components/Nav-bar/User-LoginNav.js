@@ -3,12 +3,9 @@ import {MdAccountCircle} from "react-icons/md";
 //needs actions for getting user
 //using reactstrap --
 import {
-    Collapse,
     Navbar,
     NavbarBrand,
     Nav,
-    DropdownToggle,
-    DropdownMenu,
     DropdownItem
 } from "reactstrap";
 import logo from "../../images/africanlogo.png";
