@@ -1,5 +1,5 @@
 export const initialState = {
-    id: '',
+    // id: '',
     userName: '',
     password: '',
 }
@@ -17,7 +17,7 @@ export const postUserReducer = (state = initialState, action) => {
         case SUCCESS_POSTING_USER:
             return {
                 ...state,
-                id: action.payload.id,
+                // id: action.payload.id,
                 userName: action.payload.first_name,
                 password: action.payload.last_name,
             }
