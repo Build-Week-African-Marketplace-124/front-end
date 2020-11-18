@@ -40,3 +40,10 @@ const ItemCard = (props) => {
 }
 
 export default ItemCard;
+
+// need to add an onClick to our icon
+// onClick={() => handleClick(item.id)}
+// create handleClick function for item
+// handleClick = (id) => {addToCard(id)}
+// need an addToCart in reducer/action/mapDispatchToProps
+// need mapStateToProps for items... state.items
