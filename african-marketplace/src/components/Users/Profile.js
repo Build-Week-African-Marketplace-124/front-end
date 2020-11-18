@@ -23,7 +23,7 @@ const Profile = props => {
     const submitHandler = e => {
         console.log('submit', user)
         e.preventDefault();
-        props.putUser(user);
+        props.putUser();
         setUser(initialState);
     }
 

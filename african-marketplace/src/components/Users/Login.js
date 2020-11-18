@@ -18,9 +18,9 @@ const Login = props => {
 
     const submitHandler = e => {
         e.preventDefault();
-        props.postLoginUser();
+        props.postLoginUser(user);
         setUser(initialState);
-        push('/')
+        // push('/')
     }
 
     return(

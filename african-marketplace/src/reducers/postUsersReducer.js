@@ -1,6 +1,6 @@
 export const initialState = {
     // id: '',
-    userName: '',
+    username: '',
     password: '',
 }
 
@@ -18,8 +18,8 @@ export const postUserReducer = (state = initialState, action) => {
             return {
                 ...state,
                 // id: action.payload.id,
-                userName: action.payload.first_name,
-                password: action.payload.last_name,
+                userName: action.payload.username,
+                password: action.payload.password,
             }
         case ERROR_POSTING_USER:
             return {

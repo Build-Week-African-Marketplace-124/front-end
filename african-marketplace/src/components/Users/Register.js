@@ -20,7 +20,7 @@ const Register = props => {
         e.preventDefault();
         props.postRegisterUser(user);
         setUser(initialState);
-        push('/login')
+        // push('/login')
     }
     return(
         <div>
