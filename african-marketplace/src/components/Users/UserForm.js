@@ -8,11 +8,12 @@ const UserForm = props => {
                     Name: 
                 </label>
                 <input type='text' name='username' value={props.user.username} onChange={props.changHandler} />
-
+                <br />
                 <label htmlFor='password'>
                     Password: 
                 </label>
                 <input type='password' name='password' value={props.user.password} onChange={props.changHandler} />
+                <br />
                 <button type='submit'>Submit</button>
             </form>
         </div>

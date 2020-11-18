@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import { postLoginUser } from '../../actions/UserActions';
 import { initialState } from '../../reducers/postUsersReducer';
 import UserForm from './UserForm';
@@ -26,6 +27,7 @@ const Login = props => {
     return(
         <div>
             <UserForm submitHandler={submitHandler} user={user} changHandler={changeHandler} />
+            <p><Link to='/register'>Register</Link></p>
         </div>
     )
 }

@@ -25,6 +25,7 @@ const Register = props => {
     return(
         <div>
             <UserForm submitHandler={submitHandler} user={user} changHandler={changeHandler} />
+            <p><Link to='/register'>Log In</Link></p>
         </div>
     )
 }
