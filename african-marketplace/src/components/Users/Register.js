@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import { postRegisterUser } from '../../actions/UserActions';
 import { initialState } from '../../reducers/postUsersReducer';
 import UserForm from './UserForm';
@@ -20,11 +21,12 @@ const Register = props => {
         e.preventDefault();
         props.postRegisterUser(user);
         setUser(initialState);
-        push('/login')
+        // push('/login')
     }
     return(
         <div>
             <UserForm submitHandler={submitHandler} user={user} changHandler={changeHandler} />
+            <p><Link to='/login'>Log In</Link></p>
         </div>
     )
 }

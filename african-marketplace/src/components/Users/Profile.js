@@ -23,7 +23,7 @@ const Profile = props => {
     const submitHandler = e => {
         console.log('submit', user)
         e.preventDefault();
-        props.putUser(user);
+        props.putUser();
         setUser(initialState);
     }
 
@@ -37,6 +37,7 @@ const Profile = props => {
             <form onSubmit={submitHandler}>
                 <label htmlFor='userName'>Name: </label>
                 <input type='text' name='userName' value={user.userName} placeholder={props.userName} onChange={changeHandler} />
+                <br />
                 <button type='submit'>Update Profile</button>
             </form>
                 <button onClick={deleteHandler}>Delete Account</button>
