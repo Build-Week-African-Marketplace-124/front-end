@@ -1,5 +1,4 @@
 import Axios from "axios";
-// do we need to import axiosWithAuth??
 import { ERROR_POSTING_USER, START_POSTING_USER, SUCCESS_POSTING_USER } from "../reducers/postUsersReducer";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
@@ -25,7 +24,7 @@ export const getUser = () => dispatch => {
 export const postRegisterUser = user => dispatch => {
     dispatch({type: START_POSTING_USER});
     Axios
-        .post('https://african-marketplace-124.herokuapp.com/api/users/register', user)
+        .post('https://african-marketplace-back-end.herokuapp.com/auth/register', user)
         .then(res =>{
             dispatch({
                 type: SUCCESS_POSTING_USER,
@@ -44,7 +43,7 @@ export const postRegisterUser = user => dispatch => {
 export const postLoginUser = user => dispatch => {
     dispatch({type: START_POSTING_USER});
     Axios
-        .post('https://african-marketplace-124.herokuapp.com/api/users/login', user)
+        .post('https://african-marketplace-back-end.herokuapp.com/auth/login', user)
         .then(res =>{
             dispatch({
                 type: SUCCESS_POSTING_USER,

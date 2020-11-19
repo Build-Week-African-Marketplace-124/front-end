@@ -14,6 +14,8 @@ const UserForm = props => {
                 </label>
                 <input type='password' name='password' value={props.user.password} onChange={props.changHandler} />
                 <br />
+                <label htmlFor='department'>Department (buyer or seller)</label>
+                <input type='text' name='department' value={props.user.department} onChange={props.changHandler} />
                 <button type='submit'>Submit</button>
             </form>
         </div>
