@@ -16,6 +16,7 @@ const UserForm = props => {
                 <br />
                 <label htmlFor='department'>Department (buyer or seller)</label>
                 <input type='text' name='department' value={props.user.department} onChange={props.changHandler} />
+                <br />
                 <button type='submit'>Submit</button>
             </form>
         </div>

@@ -21,17 +21,26 @@ const Login = props => {
         e.preventDefault();
         props.postLoginUser(user);
         setUser(initialState);
-        // push('/')
+        push('/')
     }
 
     return(
         <div>
+            <h1>Log In</h1>
             <UserForm submitHandler={submitHandler} user={user} changHandler={changeHandler} />
             <p><Link to='/register'>Register</Link></p>
+            <p><Link to={`/profile/${props.id}`}>Profile</Link></p>
         </div>
     )
 }
 
+const mapStateToProps = state => {
+    return {
+        //need to specify reducer because using index.js with multiple reducers
+        id: state.postUserReducer.id,
+    }
+}
+
 const mapDispatchToProps = {postLoginUser};
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

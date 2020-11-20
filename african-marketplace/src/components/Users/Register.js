@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import { postRegisterUser } from '../../actions/UserActions';
-import { initialState } from '../../reducers/postUsersReducer';
+import axiosWithAuth from '../../utils/axiosWithAuth';
 import UserForm from './UserForm';
 
 const Register = props => {
-    const [user, setUser] = useState(initialState);
+    const [user, setUser] = useState({
+        username: '',
+        password: '',
+        department: '',
+    });
     const {push} = useHistory();
+
+    // useEffect(() => {
+    //     axiosWithAuth()
+    //         .get('https://african-marketplace-back-end.herokuapp.com/users')
+    //         .then(res => console.log(res))
+    //         .catch(err => console.log(err))
+    // })
 
     const changeHandler = e => {
         setUser({
@@ -20,11 +31,16 @@ const Register = props => {
     const submitHandler = e => {
         e.preventDefault();
         props.postRegisterUser(user);
-        setUser(initialState);
-        // push('/login')
+        setUser({
+            username: '',
+            password: '',
+            department: '',
+        });
+        push('/login')
     }
     return(
         <div>
+            <h1>Register</h1>
             <UserForm submitHandler={submitHandler} user={user} changHandler={changeHandler} />
             <p><Link to='/login'>Log In</Link></p>
         </div>
