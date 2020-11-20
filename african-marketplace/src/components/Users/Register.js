@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { postRegisterUser } from '../../actions/UserActions';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 import UserForm from './UserForm';
+import Navbar from "../Nav-bar/User-LoginNav";
+import { Header, Title } from '../Home/homeStyles';
 
 const Register = props => {
     const [user, setUser] = useState({
@@ -40,9 +42,13 @@ const Register = props => {
     }
     return(
         <div>
-            <h1>Register</h1>
+            <Navbar register={true} />
+            <Header>
+                <Title>
+                    Register
+                </Title>
+            </Header>
             <UserForm submitHandler={submitHandler} user={user} changHandler={changeHandler} />
-            <p><Link to='/login'>Log In</Link></p>
         </div>
     )
 }
