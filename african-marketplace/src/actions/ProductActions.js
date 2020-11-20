@@ -10,7 +10,7 @@ export const CREATE_PRODUCT_FAILURE = "CREATE_PRODUCT_FAILURE";
 export const fetchProducts = () => dispatch => {
     dispatch({ type: FETCH_PRODUCTS_LOADING });
     axiosWithAuth()
-      .get("...")
+      .get("https://african-marketplace-back-end.herokuapp.com/items")
       .then(res => dispatch({ type: FETCH_PRODUCTS_SUCCESS, payload: res.data }))
       .catch(error => dispatch({ type: FETCH_PRODUCTS_FAILURE, payload: error }));
   };
@@ -18,7 +18,7 @@ export const fetchProducts = () => dispatch => {
   export const createProduct = (newProduct, id) => dispatch => {
     dispatch({ type: CREATE_PRODUCT_START });
     axiosWithAuth()
-      .post(`https://...url with /api/{id}/...`, newProduct)
+      .post(`https://african-marketplace-back-end.herokuapp.com/items/${id}`, newProduct)
       .then(res => dispatch({ type: CREATE_PRODUCT_SUCCESS, payload: res.data }))
       .catch(err => dispatch({ type: CREATE_PRODUCT_FAILURE, payload: err }));
   };

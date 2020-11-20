@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {AiFillPlusCircle} from "react-icons/ai";
 import {IconContext} from "react-icons"
+import {connect} from "react-redux";
 import {
   ProductCard,
   Title,
@@ -15,7 +16,7 @@ import { CardText, CardBody, Collapse } from "reactstrap";
 
 const ItemCard = (props) => {
 
-    //need data from product endpoints: title, username
+    //need data from product endpoints: id, username, name, description, price
     // do we need imgs?
 
     //map through items...
