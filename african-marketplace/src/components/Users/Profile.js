@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 import { getUser, deleteUser } from '../../actions/UserActions';
 import { initialState } from '../../reducers/postUsersReducer';
+import { Header, Title } from '../Home/homeStyles';
+import Navbar from "../Nav-bar/User-LoginNav";
+import '../../App.css'
 
 const Profile = props => {
     // const [user, setUser] = useState(initialState);
@@ -35,8 +38,13 @@ const Profile = props => {
     }
     return(
         <div>
-            <h1>Profile</h1>
-            <p>{props.userName}</p>
+            <Navbar profile={true} />
+            <Header>
+                <Title>
+                    Profile
+                </Title>
+            </Header>
+            <p className='paragraph-text'>{props.userName}</p>
             <button onClick={deleteHandler}>Delete Account</button>
         </div>
     )
