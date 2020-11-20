@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import { postLoginUser } from '../../actions/UserActions';
 import { initialState } from '../../reducers/postUsersReducer';
+import getUserID from '../../utils/getUserID';
 import UserForm from './UserForm';
 
 const Login = props => {
     const [user, setUser] = useState(initialState);
+    const id = getUserID(localStorage.getItem('token'))
     const {push} = useHistory();
 
     const changeHandler = e => {
@@ -21,7 +23,7 @@ const Login = props => {
         e.preventDefault();
         props.postLoginUser(user);
         setUser(initialState);
-        push('/')
+        // push('/')
     }
 
     return(
@@ -29,12 +31,13 @@ const Login = props => {
             <h1>Log In</h1>
             <UserForm submitHandler={submitHandler} user={user} changHandler={changeHandler} />
             <p><Link to='/register'>Register</Link></p>
-            <p><Link to={`/profile/${props.id}`}>Profile</Link></p>
+            <p><Link to={`/profile/${id}`}>Profile</Link></p>
         </div>
     )
 }
 
 const mapStateToProps = state => {
+    console.log('login', state.postUserReducer)
     return {
         //need to specify reducer because using index.js with multiple reducers
         id: state.postUserReducer.id,

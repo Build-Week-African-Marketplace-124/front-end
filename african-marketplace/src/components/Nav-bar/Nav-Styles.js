@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {NavItem, NavLink, Nav, UncontrolledDropdown, DropdownItem} from "reactstrap";
+import { Link } from "react-router-dom";
 
 export const Logo = styled.img`
   width: 130px;
@@ -47,5 +48,21 @@ export const Logout = styled(DropdownItem)`
   :hover {
     font-weight: 500;
     color: #801518;
+  }
+`;
+export const DynamicLink = styled(Link)`
+color: #801518 !important;
+  border-bottom: 2px solid #f8f9fa;
+  font-weight: 500;
+  margin: 0 5px;
+  &:hover {
+    color: #dc3545 !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid #dc3545;
+  }
+  &.nav-link.active {
+    color: #dc3545 !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid #dc3545 !important;
   }
 `;
