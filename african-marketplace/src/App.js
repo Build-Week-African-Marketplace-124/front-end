@@ -16,7 +16,7 @@ function App() {
     <Route path='/register' component={Register} />
     <Route path='/login' component={Login} />
     <Route path="/market" component={Market} />
-    <PrivateRoute path='/profile' component={Profile} />
+    <PrivateRoute path='/profile/:id' component={Profile} />
     </Switch>
     </div>
   );

@@ -1,46 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router';
-import { getUser, putUser, deleteUser } from '../../actions/UserActions';
+import { useHistory, useParams } from 'react-router';
+import { getUser, deleteUser } from '../../actions/UserActions';
 import { initialState } from '../../reducers/postUsersReducer';
 
 const Profile = props => {
-    const [user, setUser] = useState(initialState);
+    // const [user, setUser] = useState(initialState);
     const {push} = useHistory();
+    const params = useParams();
+    console.log('profile props', props)
 
     useEffect(() => {
-        props.getUser();
+        props.getUser(params.id);
     })
 
-    const changeHandler = e => {
-        setUser({
-            ...user,
-            [e.target.name]: e.target.value,
-        })
-        console.log('change', user)
-    }
+    // const changeHandler = e => {
+    //     setUser({
+    //         ...user,
+    //         [e.target.name]: e.target.value,
+    //     })
+    //     console.log('change', user)
+    // }
 
-    const submitHandler = e => {
-        console.log('submit', user)
-        e.preventDefault();
-        props.putUser();
-        setUser(initialState);
-    }
+    // const submitHandler = e => {
+    //     console.log('submit', user)
+    //     e.preventDefault();
+    //     props.putUser();
+    //     setUser(initialState);
+    // }
 
     const deleteHandler = () => {
-        props.deleteUser();
+        props.deleteUser(params.id);
         push('/');
     }
     return(
         <div>
-            <p>profile</p>
-            <form onSubmit={submitHandler}>
-                <label htmlFor='userName'>Name: </label>
-                <input type='text' name='userName' value={user.userName} placeholder={props.userName} onChange={changeHandler} />
-                <br />
-                <button type='submit'>Update Profile</button>
-            </form>
-                <button onClick={deleteHandler}>Delete Account</button>
+            <h1>Profile</h1>
+            <p>{props.userName}</p>
+            <button onClick={deleteHandler}>Delete Account</button>
         </div>
     )
 }
@@ -48,10 +45,11 @@ const Profile = props => {
 const mapStateToProps = state => {
     return {
         //need to specify reducer because using index.js with multiple reducers
+        id: state.postUserReducer.id,
         userName: state.postUserReducer.userName,
     }
 }
 
-const mapDispatchToProps = {getUser, putUser, deleteUser}
+const mapDispatchToProps = {getUser, deleteUser}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
