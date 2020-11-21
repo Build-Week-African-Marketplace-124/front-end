@@ -1,30 +1,28 @@
 import React, { useState, useEffect } from "react";
 import {AiFillPlusCircle} from "react-icons/ai";
 import {IconContext} from "react-icons"
-import {connect} from "react-redux";
 import {
   ProductCard,
-  Title,
+  ProductTitle,
   SubTitle,
   Price,
   CardOverlay,
   ToggleButton,
-  OverlayText,
-  ProfileImg
+  OverlayText
 } from "./Item-Styles";
-import { CardText, CardBody, Collapse } from "reactstrap";
+import { CardText, CardBody} from "reactstrap";
+import { GiGrain, GiMeat, GiFruitBowl, GiFruiting } from "react-icons/gi";
 
 const ItemCard = (props) => {
-
+  const [iconState, setIcon] = useState();
+  // useEffect for icons???
     //need data from product endpoints: id, username, name, description, price
     // do we need imgs?
-
-    //map through items...
 
     return (
         <IconContext.Provider value={{ style: {fontSize: '40px', color: 'yellow', cursor: 'pointer'}}}>
         <ProductCard>
-        <Title>Name of product</Title>
+        <ProductTitle>{props.data.name}</ProductTitle>
         <CardOverlay>
             <OverlayText>User: data from username</OverlayText>
         </CardOverlay>

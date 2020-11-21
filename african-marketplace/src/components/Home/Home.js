@@ -3,6 +3,7 @@ import React from "react";
 import {Header, Wrapper, Title, CardWrapper} from "./homeStyles";
 import Navbar from "../Nav-bar/User-LoginNav";
 import HomeCards from "../../Cards/Home-Cards";
+import Market from "../../Cards/Items";
 
 const Home = (props) => {
     console.log("home props", props)
@@ -16,6 +17,7 @@ const Home = (props) => {
         </Header>
         <CardWrapper>
             <HomeCards />
+            <Market />
         </CardWrapper>
         </Wrapper>
         </>
