@@ -7,29 +7,26 @@ import {
   SubTitle,
   Price,
   CardOverlay,
-  ToggleButton,
   OverlayText
 } from "./Item-Styles";
 import { CardText, CardBody} from "reactstrap";
 import { GiGrain, GiMeat, GiFruitBowl, GiFruiting } from "react-icons/gi";
 
 const ItemCard = (props) => {
+  console.log("props from itemcard", props)
   const [iconState, setIcon] = useState();
   // useEffect for icons???
-    //need data from product endpoints: id, username, name, description, price
+  // will do username later
     // do we need imgs?
 
     return (
         <IconContext.Provider value={{ style: {fontSize: '40px', color: 'yellow', cursor: 'pointer'}}}>
         <ProductCard>
         <ProductTitle>{props.data.name}</ProductTitle>
-        <CardOverlay>
-            <OverlayText>User: data from username</OverlayText>
-        </CardOverlay>
         <CardBody>
-          <SubTitle>Description: data description</SubTitle>
+          <SubTitle>{props.data.description}</SubTitle>
         </CardBody>
-      <Price>Price: data price</Price> 
+      <Price>Price: {props.data.price}</Price> 
         <div>
         <span style={{color: 'orange', fontSize: '20px', fontWeight: 'bold'}}>Add to Cart <AiFillPlusCircle /> </span>
         </div>
