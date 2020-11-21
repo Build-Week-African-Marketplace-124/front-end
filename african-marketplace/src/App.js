@@ -3,7 +3,7 @@ import {Switch, Route} from "react-router-dom";
 import Home from "./components/Home/Home";
 import Register from './components/Users/Register';
 import Login from './components/Users/Login';
-import Market from "./Cards/ItemCard";
+import Market from "./Cards/Items";
 // private routes for home (dashboard), and market and product-form
 import PrivateRoute from './components/PrivateRoute';
 import Profile from './components/Users/Profile';

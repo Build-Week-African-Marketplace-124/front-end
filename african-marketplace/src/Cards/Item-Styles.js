@@ -6,6 +6,7 @@ import {
   CardTitle,
   CardSubtitle
 } from "reactstrap";
+import { Input, InputGroup } from "reactstrap";
 
 export const ProductCard = styled(Card)`
   width: 30%;
@@ -16,7 +17,7 @@ export const ProductCard = styled(Card)`
   border-top-right-radius: 25px;
 `;
 
-export const Title = styled(CardTitle)`
+export const ProductTitle = styled(CardTitle)`
   color: white;
   background-color: #e33734;
   font-weight: bold;
@@ -53,4 +54,46 @@ export const SubTitle = styled(CardSubtitle)`
   padding: 1%;
   font-size: 1.1rem;
   margin: 1%;
+`;
+
+// item styles from Items component
+
+export const Wrapper = styled.div`
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    width:100%;
+`
+export const ItemWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100vw;
+  height: 100%;
+`;
+export const MarketTitle = styled.h1`
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  width: 100%;
+`;
+export const Heading = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 2%;
+  background-color: #e33734;
+  margin-bottom: 2%;
+`;
+export const SearchBar = styled(InputGroup)`
+  width: 50%;
+`;
+export const SearchInput = styled(Input)`
+  &&&input:focus {
+    outline: none !important;
+  }
 `;

@@ -14,7 +14,7 @@ import {
     isFetching: false
   };
   
-  const ProductsReducer = (state = initialState, action) => {
+export const productsReducer = (state = initialState, action) => {
     switch (action.type) {
       case FETCH_PRODUCTS_LOADING:
         return {
@@ -57,6 +57,4 @@ import {
         return state;
     }
   };
-  
-  export default ProductsReducer;
   
