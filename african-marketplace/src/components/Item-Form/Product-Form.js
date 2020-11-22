@@ -108,8 +108,59 @@ const AddForm = (props) => {
 
     return (
         <div>
-        
-        </div>
+            <Wrapper>
+                <Heading>
+                    <Title>POST NEW PRODUCTS</Title>
+                </Heading>
+
+                <FormWrapper>
+                    <TopBar>
+                    <Title>Fill out Form</Title>
+                    </TopBar>
+
+                    <Form onSubmit={handleSubmit}>
+                    <div>
+                    <InputWrapper>
+                    <Label>Product:</Label>
+                    <Input 
+                    type="text"
+                    name="name"
+                    placeholder="name of product"
+                    value={newProduct.product}
+                    onChange={handleChanges}
+                    valid={valid}
+                    invalid={invalid}
+                    />
+                    </InputWrapper>
+
+                    <InputWrapper>
+                    <Label>Description: </Label>
+                    <Input
+                    type="text"
+                    name="description"
+                    placeholder="description of product"
+                    value={newProduct.description}
+                    onChange={handleChanges}
+                    valid={valid}
+                    />
+                    </InputWrapper>
+
+                    <InputWrapper>
+                    <Label>Price: </Label>
+                    <Input
+                    type="text"
+                    name="price"
+                    placeholder="price"
+                    value={newProduct.price}
+                    onChange={handleChanges}
+                    valid={valid}
+                    />
+                    </InputWrapper>
+                    </div>
+                    </Form>
+                </FormWrapper>
+                </Wrapper>
+            </div>
     )
 }
 
