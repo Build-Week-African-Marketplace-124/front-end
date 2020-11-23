@@ -60,7 +60,7 @@ const AddForm = props => {
           setSuccess(true);
           setWarning(false);
           setTimeout(function(){ 
-            props.history.push("/market");
+            props.history.push("/");
           }, 3000);
           props.createProduct(newProduct);
         }else{
@@ -72,7 +72,7 @@ const AddForm = props => {
 
       const validateProduct = (props) =>{
         console.log('Register Validation Props:', props);
-        if(props.name === '' && props.descriptions === '' && props.price === ''){
+        if(props.name === '' && props.description === '' && props.price === ''){
           setError(`Fields Cannot Be Blank`);
           setValid(false);
           return false;
