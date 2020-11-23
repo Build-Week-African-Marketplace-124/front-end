@@ -1,15 +1,15 @@
 import {ADD_TO_CART} from "../actions/ShoppingCardActions";
 
 const initialState = {
-    items: {},
+    productData: {},
     addedProducts: [],
     total: 0
   };
 
-  const cartReducer= (state = initialState, action)=>{
+  export const cartReducer= (state = initialState, action)=>{
     
     if(action.type === ADD_TO_CART){
-      let addedItem = state.items.find(item=> item.id === action.id)
+      let addedItem = state.productData.find(item=> item.id === action.id)
       //check if the action id exists in the addedItems
      let existed_item= state.addedProducts.find(item=> action.id === item.id)
      if(existed_item)
@@ -36,5 +36,3 @@ const initialState = {
     return state
   }
 }
-
-export default cartReducer;
