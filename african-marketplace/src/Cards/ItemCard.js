@@ -19,7 +19,7 @@ const ItemCard = (props) => {
 
     function handleClick(id) {
       props.addToCart(id);
-      }
+      }  
 
     return (
         <IconContext.Provider value={{ style: {fontSize: '40px', color: 'yellow', cursor: 'pointer'}}}>

@@ -1,11 +1,13 @@
 import React from "react";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
+import {addToCart} from "../../actions/ShoppingCardActions";
 
 const Cart = (props) => {
-    let addedItems = props.items.length ?
+    console.log("props from cart", props)
+    let addedItems = props.productData.length ?
     (  
-        props.items.map(item=> {
+        props.productData.map(item=> {
             return(
                
                 <li className="collection-item" key={item.id}>
@@ -13,9 +15,6 @@ const Cart = (props) => {
                                 <span className="title">{item.name}</span>
                                 <p>{item.description}</p>
                                 <p><b>Price: {item.price}$</b></p> 
-                                <p>
-                                    <b>Quantity: {item.quantity}</b> 
-                                </p>
                                 <div className="add-remove">
                                     <Link to="/cart"><i className="material-icons">arrow_drop_up</i></Link>
                                     <Link to="/cart"><i className="material-icons">arrow_drop_down</i></Link>
@@ -29,7 +28,7 @@ const Cart = (props) => {
     ):
 
      (
-        <p>Nothing.</p>
+        <p>Nothing is in the cart!</p>
      )
 return(
     <div className="container">
@@ -50,4 +49,10 @@ const mapStateToProps = (state)=>{
     }
 }
 
-export default connect(mapStateToProps)(Cart)
+const mapDispatchToProps = (dispatch) => {
+    return {
+      addToCart: (id) => {dispatch(addToCart(id))}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)
