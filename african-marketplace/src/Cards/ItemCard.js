@@ -19,6 +19,10 @@ const ItemCard = (props) => {
   // will do username later
     // do we need imgs?
 
+    handleClick = (id)=>{
+      props.addToCart(id);
+      }
+
     return (
         <IconContext.Provider value={{ style: {fontSize: '40px', color: 'yellow', cursor: 'pointer'}}}>
         <ProductCard>
@@ -28,18 +32,26 @@ const ItemCard = (props) => {
         </CardBody>
       <Price>Price: {props.data.price}</Price> 
         <div>
-        <span style={{color: 'orange', fontSize: '20px', fontWeight: 'bold'}}>Add to Cart <AiFillPlusCircle /> </span>
+        <span style={{color: 'orange', fontSize: '20px', fontWeight: 'bold'}}>Add to Cart <AiFillPlusCircle onClick={()=>{this.handleClick(item.id)}}/> </span>
         </div>
       </ProductCard>
     </IconContext.Provider>
     )
 }
 
-export default ItemCard;
+const mapStateToProps = state => {
+  return {
+    productData: state.productsReducer.productData
+  }
+}
 
-// need to add an onClick to our icon
-// onClick={() => handleClick(item.id)}
-// create handleClick function for item
-// handleClick = (id) => {addToCard(id)}
-// need an addToCart in reducer/action/mapDispatchToProps
+const mapDispatchToProps = {addToCart}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemCard);
+
+// need to add an onClick to our icon check
+// onClick={() => handleClick(item.id)} cgheck
+// create handleClick function for item check
+// handleClick = (id) => {addToCart(id)} check
+// need an addToCart in reducer/action/mapDispatchToProps check
 // need mapStateToProps for items... state.items
