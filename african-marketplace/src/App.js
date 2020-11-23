@@ -8,6 +8,7 @@ import Market from "./Cards/Items";
 import PrivateRoute from './components/PrivateRoute';
 import Profile from './components/Users/Profile';
 import AddForm from "./components/Item-Form/Product-Form";
+import Cart from "./components/Cart/ShoppingCart";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
     <Route path='/login' component={Login} />
     <Route path="/market" component={Market} />
     <Route path="/item-form" component={AddForm} />
+    <Route path="/cart" component={Cart} />
     <PrivateRoute path='/profile/:id' component={Profile} />
     </Switch>
     </div>

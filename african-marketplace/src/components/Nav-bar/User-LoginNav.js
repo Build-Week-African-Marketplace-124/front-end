@@ -42,7 +42,10 @@ const Navigation = (props) => {
               <DynamicLink to={`/profile/${id}`}>PROFILE</DynamicLink>
             )}
           </LinksWrapper>
-            <LinksWrapper>
+           <LinksWrapper>
+            <MenuLink href="/cart">SHOPPING CART</MenuLink>
+            </LinksWrapper>
+           <LinksWrapper>
             {props.postItems ? (
               <MenuLink href="/item-form" active>
                 ITEM FORM
