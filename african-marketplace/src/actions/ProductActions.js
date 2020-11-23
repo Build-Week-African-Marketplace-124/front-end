@@ -18,7 +18,7 @@ export const fetchProducts = () => dispatch => {
   export const createProduct = (newProduct, id) => dispatch => {
     dispatch({ type: CREATE_PRODUCT_START });
     axiosWithAuth()
-      .post(`https://african-marketplace-back-end.herokuapp.com/items/${id}`, newProduct)
+      .post(`https://african-marketplace-back-end.herokuapp.com/items/additem`, newProduct)
       .then(res => dispatch({ type: CREATE_PRODUCT_SUCCESS, payload: res.data }))
       .catch(err => dispatch({ type: CREATE_PRODUCT_FAILURE, payload: err }));
   };

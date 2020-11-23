@@ -7,6 +7,7 @@ import Market from "./Cards/Items";
 // private routes for home (dashboard), and market and product-form
 import PrivateRoute from './components/PrivateRoute';
 import Profile from './components/Users/Profile';
+import AddForm from "./components/Item-Form/Product-Form";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
     <Route path='/register' component={Register} />
     <Route path='/login' component={Login} />
     <Route path="/market" component={Market} />
+    <Route path="/item-form" component={AddForm} />
     <PrivateRoute path='/profile/:id' component={Profile} />
     </Switch>
     </div>

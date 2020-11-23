@@ -84,7 +84,7 @@ import { Wrapper, ItemWrapper,
         <>
         <Wrapper>
         <Heading>
-            <MarketTitle>MARKET PLACE</MarketTitle>
+            <MarketTitle>SEARCH OUR PRODUCTS</MarketTitle>
             <SearchBar>
                 <InputGroupAddon addonType="prepend">
                     <InputGroupText>
