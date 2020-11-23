@@ -27,6 +27,15 @@ const Navigation = (props) => {
           <UserMenu nav inNavbar>
               <MdAccountCircle />
             <LinksWrapper>
+            {props.home ? (
+                <MenuLink href="/" active>
+                  HOME
+                </MenuLink>
+              ) : (
+                <MenuLink href="/">GO HOME</MenuLink>
+              )}
+            </LinksWrapper>
+            <LinksWrapper>
             {props.profile ? (
               <DynamicLink to={`/profile/${id}`}>PROFILE</DynamicLink>
             ) : (

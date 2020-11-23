@@ -12,7 +12,6 @@ export const getUser = id => dispatch => {
                 type: SUCCESS_POSTING_USER,
                 payload: res.data,
             });
-            console.log(res)
         })
         .catch(err => {
             dispatch({
