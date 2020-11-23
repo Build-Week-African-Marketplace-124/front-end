@@ -2,17 +2,31 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 import { getUser, deleteUser } from '../../actions/UserActions';
-import { initialState } from '../../reducers/postUsersReducer';
+import { Header, Title } from '../Home/homeStyles';
+import Navbar from "../Nav-bar/User-LoginNav";
+import '../../App.css'
+import axiosWithAuth from '../../utils/axiosWithAuth';
 
 const Profile = props => {
-    // const [user, setUser] = useState(initialState);
+    const [userItems, setUserItems] = useState();
     const {push} = useHistory();
     const params = useParams();
-    console.log('profile props', props)
 
     useEffect(() => {
         props.getUser(params.id);
     })
+
+    useEffect(() => {
+        axiosWithAuth()
+            .get(`https://african-marketplace-back-end.herokuapp.com/users/${params.id}/items`)
+            .then(res => {
+                setUserItems(
+                    Object.values(res.data.items)
+                )
+            })
+            .catch(err => console.log(err));
+    }, [])
+    console.log(userItems)
 
     // const changeHandler = e => {
     //     setUser({
@@ -35,8 +49,19 @@ const Profile = props => {
     }
     return(
         <div>
-            <h1>Profile</h1>
-            <p>{props.userName}</p>
+            <Navbar profile={true} />
+            <Header>
+                <Title>
+                    Profile
+                </Title>
+            </Header>
+            {userItems 
+                ? userItems.map(item => (
+                    <p key={item.id}>{item.name}</p>
+                ))
+                : null
+        }
+            <p className='paragraph-text'>{props.userName}</p>
             <button onClick={deleteHandler}>Delete Account</button>
         </div>
     )
